@@ -11,10 +11,12 @@ CREATE DATABASE todo_app;
 \c todo_app;
 
 CREATE TABLE tasks (
-  id serial,
-  title varchar(255),
+  id serial NOT NULL PRIMARY KEY,
+  title varchar(255) NOT NULL,
   description text,
-  created_at timestamp,
+  created_at timestamp NOT NULL,
   updated_at timestamp,
-  completed boolean
+  completed boolean NOT NULL
 );
+
+ALTER TABLE tasks DROP COLUMN completed;
