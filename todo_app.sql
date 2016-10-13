@@ -49,3 +49,43 @@ SELECT title FROM tasks WHERE completed_at IS NULL;
 UPDATE tasks SET completed_at = CURRENT_TIMESTAMP WHERE title = 'Study SQL';
 
 SELECT title, description FROM tasks WHERE completed_at IS NULL;
+
+SELECT id, title, description, created_at, updated_at, completed_at
+FROM tasks ORDER BY created_at DESC;
+
+INSERT INTO tasks VALUES (
+  DEFAULT,
+  'mistake 1',
+  'a test entry',
+  DEFAULT,
+  DEFAULT,
+  DEFAULT
+);
+
+INSERT INTO tasks VALUES (
+  DEFAULT,
+  'mistake 2',
+  'another test entry',
+  DEFAULT,
+  DEFAULT,
+  DEFAULT
+);
+
+INSERT INTO tasks VALUES (
+  DEFAULT,
+  'third mistake',
+  'another test entry',
+  DEFAULT,
+  DEFAULT,
+  DEFAULT
+);
+
+SELECT title FROM tasks WHERE title LIKE '%mistake%';
+
+DELETE FROM tasks WHERE title = 'mistake 1';
+
+SELECT title, description FROM tasks WHERE title LIKE '%mistake%';
+
+DELETE FROM tasks WHERE title LIKE '%mistake%';
+
+SELECT * FROM tasks ORDER BY title;
